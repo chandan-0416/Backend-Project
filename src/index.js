@@ -24,19 +24,6 @@ connectDB()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 
 1st Approach : database connection

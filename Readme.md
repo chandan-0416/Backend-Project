@@ -1,5 +1,9 @@
-# Backend project with JavaScript
+# Backend project with JavaScript BY HITESH SIR 🚀🚀
 - [Model link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
+
+# Frontend and Backend
+- Frontend is the part of a website or application that users see and interact with, while the backend is the server-side that powers it. Frontend development uses languages like HTML, CSS, and JavaScript to build the user interface, while backend development uses languages like Python, Java, or Ruby to manage data, servers, and application logic. 
+- A full-stack developer is a person who can handle both front-end and back-end development, building an application from start to finish.
 
 # database schema 
 1. A database schema serves as the blueprint for a database, defining its structure and organization in a formal language supported by a database management system (DBMS). It outlines how data is logically stored, including the relationships between different tables and other database objects. 
@@ -32,8 +36,8 @@
             actual name is determined by the parameters to the callback function in which you’re working.
 
 2. Search npm js
-- npm i cookie-parser, cors
-
+- npm i cookie-parser cors
+- enable CORS => This allows your frontend to talk to your backend.
 3. configuration setting 
 - comming data from multiple places into backend so we need some configurations setting and how to configure ---> .use()
 
@@ -65,3 +69,28 @@
 4. npm i bcrypt jsonwebtoken
 - bcrypt: A library to help you hash passwords.
 - JWT: it's bearer token. (Access token, Refresh token)
+
+5. # Explain the code of user models
+-  # import
+- mongoose → Used to create MongoDB models and schemas. |for creating schemas & interacting with MongoDB.
+- Schema → A blueprint/structure for how a user document should look. | Schema → shortcut for mongoose.Schema.
+- jwt → Used to generate tokens for login (Access + Refresh tokens). 
+- bcrypt → Used to hash passwords securely.
+- Hashing converts your real password into a secret, unreadable string before saving it in the database. why use - Because if someone hacks your database, they should NOT see your real passwords.
+- Refresh Token : Used during silent login (access token expires → refresh token creates a new one).
+- Access Token contains: user id, email, username,  full name --> Used for: Authorization, Protecting routes.
+- Refresh Token contains only: _id   --> Used to generate new access token without login.
+# salt round = 10 (industry standard)
+- A salt is a random string added to the password before hashing so that:
+- two users with the same password will NOT have the same hash
+- attackers cannot use precomputed tables (rainbow tables)
+- password → password + randomSalt → hash     => This makes hashing more secure.
+- Salt rounds (also called cost factor) = how many times bcrypt internally processes the password.(Higher rounds = more secure, Higher rounds = slower hashing)
+- 10 rounds => It is secure enough for modern applications, It is fast enough to not slow down signup/login
+- bcrypt generates a random salt internally, applies hashing 10 times, produces a secure, unique hash
+# Pagination Plugin
+- This lets you paginate complex queries like: filter by tag, search videos, sort by views, group by categories etc.
+
+
+6. # Cloudinary Services
+- Cloudinary is a cloud-based media management service that allows you to easily upload, store, optimize, and deliver:Images, Videos, Thumbnails, Audio, Raw files . It is widely used in modern apps—Instagram, TikTok, YouTube clones, e-commerce apps, etc.

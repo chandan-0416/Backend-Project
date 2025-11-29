@@ -1,5 +1,5 @@
-import mongoose, {Schema} from "mongoose"
-import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2"
+import mongoose, {Schema} from "mongoose" // for creating schemas & interacting with MongoDB
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2" // a plugin that adds pagination support for MongoDB aggregate queries.
 
 const videoSchema = new Schema(
     {

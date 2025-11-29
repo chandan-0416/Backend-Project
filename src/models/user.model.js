@@ -55,7 +55,7 @@ const userSchema = new Schema(  // This defines the structure of the "User" docu
 userSchema.pre("save", async function(next) { // Password Hashing Middleware
     if(!this.isModified("password")) return next();
 
-    this.password = bcrypt.hash(this.password, 10) //(takes the real password ,salt rounds = 10 (industry standard))
+    this.password = await bcrypt.hash(this.password, 10) //(takes the real password ,salt rounds = 10 (industry standard))
     next()
 })
 

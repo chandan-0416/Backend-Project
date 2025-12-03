@@ -25,14 +25,14 @@
 7. When we talk to the database --> try-catch / promise (Error handling) and async-await (database is in another continent)
 8. Error : your project uses ES Modules, and ES Modules do NOT support require() --> solve by adding experimental features inside package.json (nodemon)
 
-# We make App through express
+# We make our App through the express
 1. Read documentation
 - Creates an Express application. The express() function is a top-level function exported by the express module.
 - request: The req object represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and so on.
-           In this documentation and by convention, the object is always referred to as req (and the HTTP response is res) but its actual name is determined by the parameters to the callback function in which you’re working.
+           - In this documentation and by convention, the object is always referred to as req (and the HTTP response is res) but its actual name is determined by the parameters to the callback function in which you’re working.
            properties - req.baseURL, req.body, req.params
 - response: The res object represents the HTTP response that an Express app sends when it gets an HTTP request.
-            In this documentation and by convention, the object is always referred to as res (and the HTTP request is req) but its
+            - In this documentation and by convention, the object is always referred to as res (and the HTTP request is req) but its
             actual name is determined by the parameters to the callback function in which you’re working.
 
 2. Search npm js
@@ -92,5 +92,174 @@
 - This lets you paginate complex queries like: filter by tag, search videos, sort by views, group by categories etc.
 
 
-6. # Cloudinary Services
+6.  How to upload files in backend | file upload (file handling) | use third party server to upload like Cloudinary service
+# Cloudinary Services
 - Cloudinary is a cloud-based media management service that allows you to easily upload, store, optimize, and deliver:Images, Videos, Thumbnails, Audio, Raw files . It is widely used in modern apps—Instagram, TikTok, YouTube clones, e-commerce apps, etc.
+- file upload (choose 1 package/way out of 2 packages)- express file upload and multer
+- npm i cloudinary multer
+- and also import fs(file system) to manage the files , use multer as node.js middleware
+# Multer
+ - Multer is a Node.js middleware that simplifies handling multipart/form-data, which is the encoding type used for file uploads. It provides middleware to process incoming data, making uploaded files and other form fields easily accessible in req.file or req.files and req.body objects, respectively.
+ - Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
+ - Multer accepts an options object, the most basic of which is the dest/storage property, which tells Multer where to upload the files.
+ - If you want more control over your uploads, you'll want to use the storage option instead of dest. Multer ships with storage engines DiskStorage and MemoryStorage:
+- DiskStorage: The disk storage engine gives you full control on storing files to disk.
+- MemoryStorage: The memory storage engine stores the files in memory as Buffer objects. It doesn't have any options.
+
+7. # HTTP Course : [Hypertext Transfer Protocol]
+- Operating System, network, communication / HTTP or HTTPs, client, server, IP Address
+- (URL: Uniform Resource Locator, URI: Uniform Resource Identifier, URNs: Uniform Resource Names)
+- URI is the general term for any identifier, while URL and URN are specific types of URIs
+- HTTP Headers : (Metadata, most common headers)
+- HTTP Methods
+- HTTP Status code
+
+ #  How we write HTTP request in code
+```
+{
+- Frontend (React)
+
+    fetch("/api/login", {
+  method: "POST",
+  body: JSON.stringify({ email, password })
+})
+
+ - API Route (Next.js)
+
+ export async function POST(req) {
+  const { email, password } = await req.json();
+  return NextResponse.json({ message: "OK" });
+}
+}
+```
+# HTTP Request–Response Cycle Diagram
+```
+{
+STEP 1: Browser creates an HTTP Request
+-----------------------------------------
+URL: /api/login
+Method: POST
+Headers: Content-Type: application/json
+Body: { email, password }
+
+STEP 2: Request sent to the Server
+-----------------------------------------
+Frontend --> Internet --> Server (Backend)
+
+STEP 3: Backend processes the request
+-----------------------------------------
+- Validates user
+- Talks to Database
+- Generates token
+
+STEP 4: Server sends HTTP Response
+-----------------------------------------
+Status: 200
+Headers: Content-Type: application/json
+Body: { "message": "Login success" }
+
+STEP 5: Frontend receives response
+-----------------------------------------
+Frontend updates UI
+}
+```
+# HTTP Request/Response
+- HTTP Request → what frontend sends
+- Contains:
+✔ Method
+✔ Headers
+✔ URL
+✔ Body
+- HTTP Response → what backend returns
+- Contains:
+✔ Status Code
+✔ Headers
+✔ Data (JSON, HTML, file, etc.)
+# Example of Full Response (API)
+``` 
+{
+    HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "productId": 5,
+  "name": "iPhone 14",
+  "price": 799
+}
+}
+```
+# How Frontend Handles the Response
+```
+{
+    const res = await fetch("/api/login");
+const data = await res.json();
+
+if (res.status === 200) {
+    console.log("Login success:", data);
+} else {
+    console.log("Error:", data.message);
+}
+
+}
+```
+- The frontend decides what to do depending on: success or failure, what data was returned, response code
+
+``
+# Full Architecture
+```
+   {        ┌──────────────────────────┐
+           │        CLIENT            │
+           │  (React, Next.js UI)     │
+           └────────────┬─────────────┘
+                        |
+                        | HTTP Request (fetch/axios)
+                        v
+            ┌─────────────────────────┐
+            │          API            │
+            │ (/api/... endpoints)    │
+            └────────────┬────────────┘
+                        |
+                        v
+            ┌─────────────────────────┐
+            │        BACKEND          │
+            │ Business Logic, Auth    │
+            │ Controllers, Services   │
+            └────────────┬────────────┘
+                        |
+                        | DB Query
+                        v
+            ┌─────────────────────────┐
+            │        DATABASE         │
+            │  MongoDB, MySQL, etc    │
+            └────────────┬────────────┘
+                        |
+                        | Hosted On Cloud
+                        v
+           ┌──────────────────────────┐
+           │         CLOUD            │
+           │ Vercel, AWS, Mongo Atlas │
+           └──────────────────────────┘
+}
+```
+8. # Controller (Logic building)
+- controllers : methoda with HOF & helper(wrapper) --> where run --> on URL => route
+- route : route create from the express, file suggestion
+# Logic Building for the Register Controller => Business logic building --> Problems => broke into small steps
+- get user details from frontend : How -> take data through Postman and which data we will take from user details according to the user Model
+- validation - not empty
+- check if user already exist: username, email
+- check for images, check for avatar
+- upload them to cloudinary, avatar
+- create user object - create entry in db
+- remove password and refresh token field from response
+- check for user creation
+- return res
+
+9. # API Testing
+- Thunder Client
+- Postman (we, use) --> collection share, use for data testing
+- # Postman
+1. Postman is a powerful API development and testing tool that simplifies the process of building, testing, and managing APIs. It allows developers to send HTTP requests, analyze responses, automate workflows, and collaborate efficiently. With support for multiple authentication methods, request body formats, and automated testing, Postman has become one of the most popular tools for modern API development.
+2. In Postman, you can send requests by selecting the HTTP method (GET, POST, etc.) and entering the API URL in the request bar. After clicking Send, Postman displays the server’s response along with headers, status codes, and data.
+10. 

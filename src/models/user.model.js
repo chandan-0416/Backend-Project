@@ -67,7 +67,7 @@ userSchema.methods.isPasswordCorrect = async function // Password Compare Method
 userSchema.methods.generateAccessToken = function() { // Generate Access Token
    return jwt.sign(
         {
-            _id: this.id,
+            _id: this._id,
             email: this.email,
             username: this.username,
             fullName: this.fullName
@@ -81,7 +81,7 @@ userSchema.methods.generateAccessToken = function() { // Generate Access Token
 userSchema.methods.generateRefreshToken = function() { // Generate Refresh Token
     return jwt.sign(
         {
-            _id: this.id,
+            _id: this._id,
         
         },
         process.env.REFRESH_TOKEN_SECRET,

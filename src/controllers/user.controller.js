@@ -112,13 +112,20 @@ const loginUser = asyncHandler(async (req, res) =>{
        // send cookie
 
        const {email, username, password} =req.body
+       console.log(email);
 
-       if(!username || !email) {
-        throw new ApiError(400, "username or password is required")
+       if(!username && !email) { 
+        throw new ApiError(400, "username or email is required")
        }
+
+       // Here is an alternative of above code based on logic
+      //  if(!(username || email)){
+      //    throw new ApiError(400, "username or email is required")
+      //  }
+
       
        // Query - for MongoDB - mongoose
-  const user = await User.findOne({
+      const user = await User.findOne({
         $or: [{username}, {email}]
        })
 

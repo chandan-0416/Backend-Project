@@ -1,7 +1,8 @@
 # Backend project with JavaScript BY HITESH SIR 🚀🚀
-
+This project is a complex backend project that is built with nodejs, expressjs, mongodb, mongoose, jwt, bcrypt, and many more. This project is a complete backend project that has all the features that a backend project should have. We are building a complete video hosting website similar to youtube with all the features like login, signup, upload video, like, dislike, comment, reply, subscribe, unsubscribe, and many more.
+# Link
 - [Model link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
-
+- [Figma link](https://www.figma.com/design/shmxWL5FKRO5GNOPPopBg6/PLAY?node-id=0-1&p=f)
 # Frontend and Backend
 - Frontend is the part of a website or application that users see and interact with, while the backend is the server-side that powers it. Frontend development uses languages like HTML, CSS, and JavaScript to build the user interface, while backend development uses languages like Python, Java, or Ruby to manage data, servers, and application logic.
 - A full-stack developer is a person who can handle both front-end and back-end development, building an application from start to finish.
@@ -18,7 +19,6 @@ MongoDB is an open-source database that requires manual management, while MongoD
 - git initialize
 - third party service
 - folder structure
-
 # database connection
 1. npm i mongoose express dotenv
 2. online database connection --> MongoDB ATLAS (username, password, IP Address, String connection) | database access, network access
@@ -78,9 +78,7 @@ MongoDB is an open-source database that requires manual management, while MongoD
 - Refresh Token : Used during silent login (access token expires → refresh token creates a new one).
 - Access Token contains: user id, email, username, full name --> Used for: Authorization, Protecting routes.
 - Refresh Token contains only: \_id --> Used to generate new access token without login.
-
-# salt round = 10 (industry standard)
-
+- salt round = 10 (industry standard):
 - A salt is a random string added to the password before hashing so that:
 - two users with the same password will NOT have the same hash
 - attackers cannot use precomputed tables (rainbow tables)
@@ -88,31 +86,22 @@ MongoDB is an open-source database that requires manual management, while MongoD
 - Salt rounds (also called cost factor) = how many times bcrypt internally processes the password.(Higher rounds = more secure, Higher rounds = slower hashing)
 - 10 rounds => It is secure enough for modern applications, It is fast enough to not slow down signup/login
 - bcrypt generates a random salt internally, applies hashing 10 times, produces a secure, unique hash
-
-# Pagination Plugin
-
-- This lets you paginate complex queries like: filter by tag, search videos, sort by views, group by categories etc.
-
-6.  How to upload files in backend | file upload (file handling) | use third party server to upload like Cloudinary service
+- Pagination Plugin: This lets you paginate complex queries like: filter by tag, search videos, sort by views, group by categories etc.
+6. How to upload files in backend | file upload (file handling) | use third party server to upload like Cloudinary service
 
 # Cloudinary Services
-
 - Cloudinary is a cloud-based media management service that allows you to easily upload, store, optimize, and deliver:Images, Videos, Thumbnails, Audio, Raw files . It is widely used in modern apps—Instagram, TikTok, YouTube clones, e-commerce apps, etc.
 - file upload (choose 1 package/way out of 2 packages)- express file upload and multer
 - npm i cloudinary multer
 - and also import fs(file system) to manage the files , use multer as node.js middleware
-
 # Multer
-
 - Multer is a Node.js middleware that simplifies handling multipart/form-data, which is the encoding type used for file uploads. It provides middleware to process incoming data, making uploaded files and other form fields easily accessible in req.file or req.files and req.body objects, respectively.
 - Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
 - Multer accepts an options object, the most basic of which is the dest/storage property, which tells Multer where to upload the files.
 - If you want more control over your uploads, you'll want to use the storage option instead of dest. Multer ships with storage engines DiskStorage and MemoryStorage:
 - DiskStorage: The disk storage engine gives you full control on storing files to disk.
 - MemoryStorage: The memory storage engine stores the files in memory as Buffer objects. It doesn't have any options.
-
 7. # HTTP Course : [Hypertext Transfer Protocol]
-
 - Operating System, network, communication / HTTP or HTTPs, client, server, IP Address
 - (URL: Uniform Resource Locator, URI: Uniform Resource Identifier, URNs: Uniform Resource Names)
 - URI is the general term for any identifier, while URL and URN are specific types of URIs
@@ -316,3 +305,4 @@ if (res.status === 200) {
 2. Middleware (authmiddleware.ts) => "Jane se pahle mujhse mil kar jana"
 
 }
+

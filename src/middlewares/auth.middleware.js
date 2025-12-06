@@ -20,7 +20,8 @@ try {
     select(" -password -refreshToken")
     
     if(!user) {
-        // NEXT_VIDEO: discuss about frontend
+      
+        // discuss about frontend in userController.js
         throw new ApiError(401, "Invalid Access Token")
     }
     

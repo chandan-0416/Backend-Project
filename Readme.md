@@ -3,18 +3,22 @@ This project is a complex backend project that is built with nodejs, expressjs, 
 # Link
 - [Model link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
 - [Figma link](https://www.figma.com/design/shmxWL5FKRO5GNOPPopBg6/PLAY?node-id=0-1&p=f)
-# Frontend and Backend
-- Frontend is the part of a website or application that users see and interact with, while the backend is the server-side that powers it. Frontend development uses languages like HTML, CSS, and JavaScript to build the user interface, while backend development uses languages like Python, Java, or Ruby to manage data, servers, and application logic.
-- A full-stack developer is a person who can handle both front-end and back-end development, building an application from start to finish.
-# database schema
-1. A database schema serves as the blueprint for a database, defining its structure and organization in a formal language supported by a database management system (DBMS). It outlines how data is logically stored, including the relationships between different tables and other database objects.
-2. These schemas act as blueprints for your data, specifying field types, required fields, default values, and even custom validation logic.
+# What is Backend ?
+- The backend is the "behind-the-scenes" part of an application (like a website or app) that users don't see, handling the logic, data storage, and server operations that make everything work, including databases, APIs, and user authentication, using languages like Python, Java, or Node.js to process requests and deliver data to the user-facing frontend. 
+# Database schema
+- A database schema serves as the blueprint for a database, defining its structure and organization in a formal language supported by a database management system (DBMS). It outlines how data is logically stored, including the relationships between different tables and other database objects.
+- These schemas act as blueprints for your data, specifying field types, required fields, default values, and even custom validation logic.
 # MongoDB Atlas
 MongoDB Atlas is a fully managed, multi-cloud database-as-a-service that simplifies the deployment, scaling, and management of MongoDB databases. It automates tasks like provisioning, patching, backups, and scaling, allowing developers to focus on building applications instead of managing infrastructure. It is built on major cloud providers like AWS, Azure, and Google Cloud. 
 # Difference between mongodb and mongodb atlas
-MongoDB is an open-source database that requires manual management, while MongoDB Atlas is a fully managed cloud-based service that automates tasks like backups, scaling, and security. The choice depends on your needs: self-hosted MongoDB offers more control and is free to start with, but comes with higher operational overhead; Atlas offers ease of use, automated scaling, and built-in features for high availability, suitable for those who prefer not to manage the infrastructure
-###### How to setup a professional backend project 🚀
+MongoDB is an open-source database that requires manual management, while MongoDB Atlas is a fully managed cloud-based service that automates tasks like backups, scaling, and security. The choice depends on your needs: self-hosted MongoDB offers more control and is free to start with, but comes with higher operational overhead; Atlas offers ease of use, automated scaling, and built-in features for high availability, suitable for those who prefer not to manage the infrastructure.
+# Express.js
+- Express.js, often referred to simply as Express, is a minimalist and flexible Node.js web application framework. It provides a robust set of features for building web applications and APIs quickly and efficiently.
+- Express.js is a backend framework that runs on Node. js. It helps build server-side applications and APIs by handling routing, requests, and responses.
+# Express.js v/s Node.js
+Node JS is a runtime environment that allows you to run JavaScript on the server side, while Express JS is a web application framework built on top of Node js to simplify building web applications.
 
+###### How to setup a professional backend project 🚀
 - npm init
 - git initialize
 - third party service
@@ -54,7 +58,7 @@ MongoDB is an open-source database that requires manual management, while MongoD
    - API's server have status code
    - In Node.js, particularly when building web servers with frameworks like Express, HTTP status codes are used to indicate the outcome
      of a client's request to the server. These codes are part of the HTTP response and inform the client whether the request was successful, redirected, or encountered an error.
-# models
+# Data models (Data fields)
 1. data fields
 - user.models.js
 - video.models.js
@@ -66,10 +70,7 @@ MongoDB is an open-source database that requires manual management, while MongoD
 4. npm i bcrypt jsonwebtoken
 - bcrypt: A library to help you hash passwords.
 - JWT: it's bearer token. (Access token, Refresh token)
-
-5. # Explain the code of user models
-
-- # import
+5. Explain the code of user models
 - mongoose → Used to create MongoDB models and schemas. |for creating schemas & interacting with MongoDB.
 - Schema → A blueprint/structure for how a user document should look. | Schema → shortcut for mongoose.Schema.
 - jwt → Used to generate tokens for login (Access + Refresh tokens).
@@ -88,7 +89,6 @@ MongoDB is an open-source database that requires manual management, while MongoD
 - bcrypt generates a random salt internally, applies hashing 10 times, produces a secure, unique hash
 - Pagination Plugin: This lets you paginate complex queries like: filter by tag, search videos, sort by views, group by categories etc.
 6. How to upload files in backend | file upload (file handling) | use third party server to upload like Cloudinary service
-
 # Cloudinary Services
 - Cloudinary is a cloud-based media management service that allows you to easily upload, store, optimize, and deliver:Images, Videos, Thumbnails, Audio, Raw files . It is widely used in modern apps—Instagram, TikTok, YouTube clones, e-commerce apps, etc.
 - file upload (choose 1 package/way out of 2 packages)- express file upload and multer
@@ -101,16 +101,15 @@ MongoDB is an open-source database that requires manual management, while MongoD
 - If you want more control over your uploads, you'll want to use the storage option instead of dest. Multer ships with storage engines DiskStorage and MemoryStorage:
 - DiskStorage: The disk storage engine gives you full control on storing files to disk.
 - MemoryStorage: The memory storage engine stores the files in memory as Buffer objects. It doesn't have any options.
-7. # HTTP Course : [Hypertext Transfer Protocol]
+
+# HTTP Course : [Hypertext Transfer Protocol]
 - Operating System, network, communication / HTTP or HTTPs, client, server, IP Address
 - (URL: Uniform Resource Locator, URI: Uniform Resource Identifier, URNs: Uniform Resource Names)
 - URI is the general term for any identifier, while URL and URN are specific types of URIs
 - HTTP Headers : (Metadata, most common headers)
 - HTTP Methods
 - HTTP Status code
-
 # How we write HTTP request in code
-
 ```
 {
 - Frontend (React)
@@ -128,9 +127,7 @@ MongoDB is an open-source database that requires manual management, while MongoD
 }
 }
 ```
-
 # HTTP Request–Response Cycle Diagram
-
 ```
 {
 STEP 1: Browser creates an HTTP Request
@@ -161,23 +158,12 @@ STEP 5: Frontend receives response
 Frontend updates UI
 }
 ```
-
 # HTTP Request/Response
-
 - HTTP Request → what frontend sends
-- Contains:
-  ✔ Method
-  ✔ Headers
-  ✔ URL
-  ✔ Body
+- Contains: ✔ Method, ✔ Headers, ✔ URL, ✔ Body
 - HTTP Response → what backend returns
-- Contains:
-  ✔ Status Code
-  ✔ Headers
-  ✔ Data (JSON, HTML, file, etc.)
-
+- Contains: ✔ Status Code, ✔ Headers, ✔ Data (JSON, HTML, file, etc.)
 # Example of Full Response (API)
-
 ```
 {
     HTTP/1.1 200 OK
@@ -191,9 +177,7 @@ Cache-Control: no-cache
 }
 }
 ```
-
 # How Frontend Handles the Response
-
 ```
 {
     const res = await fetch("/api/login");
@@ -204,14 +188,11 @@ if (res.status === 200) {
 } else {
     console.log("Error:", data.message);
 }
-
 }
 ```
-
 - The frontend decides what to do depending on: success or failure, what data was returned, response code
 
 # Full Architecture
-
 ```
    {       ┌──────────────────────────┐
            │        CLIENT            │
@@ -246,31 +227,21 @@ if (res.status === 200) {
            │ Vercel, AWS, Mongo Atlas │
            └──────────────────────────┘
 }
-```
-
-8.  Controller's Journey
-
-# Controllers - (Logic building)
-
+``` 
+# Controller's Journey | Controllers - (Logic building)
 - controllers : method with HOF & helper(wrapper) --> where run --> on URL => route
 - route : route create from the express, file suggestion
-
+- Logic Building for the Register Controller => Business logic building --> Problems => broke into small steps
 # API Testing
-
 - Thunder Client
 - Postman (we, use) --> collection share, use for data testing, How to use Postman for backend, Postman properly configure,
-
 # Postman
-
 - Postman is a powerful API development and testing tool that simplifies the process of building, testing, and managing APIs. It allows
   developers to send HTTP requests, analyze responses, automate workflows, and collaborate efficiently. With support for multiple authentication methods, request body formats, and automated testing, Postman has become one of the most popular tools for modern API development.
 - In Postman, you can send requests by selecting the HTTP method (GET, POST, etc.) and entering the API URL in the request bar. After
   clicking Send, Postman displays the server’s response along with headers, status codes, and data.
 
-9. Logic Building for the Register Controller => Business logic building --> Problems => broke into small steps
-
 # Todos for RegisterUser
-
 - get user details from frontend (How? -> take data through Postman and which data we will take from user details according to the user Model)
 - validation - not empty
 - check if user already exist: username, email
@@ -282,7 +253,6 @@ if (res.status === 200) {
 - return res
 
 # Todos for loginUser
-
 - req.body
 - username or email
 - find the user
@@ -291,18 +261,20 @@ if (res.status === 200) {
 - send cookie
 
 # Todos for logoutUser
-
-{
-
 1. logout
-
 - cookie clear
 - reset refresh Token(in Model)
 - problem : can't do like user.findById
 - solution : generate our own middleware --> this will verify the user is exist or not to logout
 - middleware majorely use with route
-
 2. Middleware (authmiddleware.ts) => "Jane se pahle mujhse mil kar jana"
+- Authentication with duration:
+- client(1st time login) --> Access Token(A short-lived token: duration) and Refresh Token (A long-lived token- protected resource)
+- server generate new access token for more time duration
+- Access token is a short-lived JWT used to access protected routes. It expires quickly for security.
+Refresh token is a long-lived JWT stored in an HTTP-Only cookie, used to generate a new access token when the old one expires.
 
-}
-
+# Discuss about model
+- user model ✔
+- video model ✔
+- subscription model 

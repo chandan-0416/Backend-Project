@@ -1,4 +1,5 @@
 # Backend project with JavaScript BY HITESH SIR 🚀🚀
+
 This project is a complex backend project that is built with nodejs, expressjs, mongodb, mongoose, jwt, bcrypt, and many more. This project is a complete backend project that has all the features that a backend project should have. We are building a complete video hosting website similar to youtube with all the features like login, signup, upload video, like, dislike, comment, reply, subscribe, unsubscribe, and many more.
 # Link
 - [Model link](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
@@ -277,4 +278,29 @@ Refresh token is a long-lived JWT stored in an HTTP-Only cookie, used to generat
 # Discuss about model
 - user model ✔
 - video model ✔
-- subscription model 
+- subscription model
+
+# subscription
+- channel => count:  through subscriber
+- subscriber => count: through channel
+# Methods
+- changeCurrentPassword (req.body)
+- getCurrentUser 
+- updateAccountDetails (req.user)
+- updateUserAvataer (req.file)
+- getUserChannelProfile  (req.params)
+# Aggregation pipeline (in Mongodb)
+- Aggregation (in MongoDB) means processing data in a collection to produce summarized, transformed, or combined results.
+- Aggregation returns processed data (totals, averages, groups, joined data, statistics, etc.).
+- Aggregation = Taking many documents → applying operations → producing meaningful results.
+- Eg. : Total number of users, Average views of videos, No. of Subscriber, No. of channel (views)
+- Aggregation = Powerful processing of data using multiple stages (filtering, grouping, joining, calculating) to produce analytics or transformed output.
+- An aggregation pipeline is a sequence (array) of stages that process documents in a collection. Each stage transforms the documents and passes the results to the next stage — like a data-processing pipeline.
+- Pipeline: an ordered array of stages [{ $match: {...} }, { $group: {...} }, ...]
+- Stage: an operator that performs one step (filter, project, group, join, sort, etc.).
+- Expressions: inside stages you can use powerful expressions ($sum, $cond, $map, $filter, etc.).
+
+
+
+
+##### THANK YOU SO MUCH HITESH CHOUDHARY SIR 🙏!!

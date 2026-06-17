@@ -24,7 +24,7 @@ const generateAccessAndRefreshTokens = async (userId) => {
   }
 };
 
-const registerUser = asyncHandler(async (req, res) => {
+const registerUser = asyncHandler( async (req, res) => {
   // res.status(500).json({
   //     message: "ok"
   // })

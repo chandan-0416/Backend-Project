@@ -27,7 +27,6 @@ const userSchema = new Schema(  // This defines the structure of the "User" docu
         },
         avatar: {
             type: String, // cloudinary url , This will store a Cloudinary URL for profile image.
-            required: true,
         },
         coverImage: {
             type: String,

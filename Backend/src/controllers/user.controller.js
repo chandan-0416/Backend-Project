@@ -61,32 +61,33 @@ const registerUser = asyncHandler( async (req, res) => {
   }
   // console.log(req.files);
 
-  const avatarLocalPath = req.files?.avatar[0]?.path;
-  //  const coverImageLocalPath = req.files?.coverImage[0]?.path;  // becoz it's not required so again rewrite in different way
-  let coverImageLocalPath;
-  if (
-    req.files &&
-    Array.isArray(req.files.coverImage) &&
-    req.files.coverImage.length > 0
-  ) {
-    coverImageLocalPath = req.files.coverImage[0].path;
-  }
+  ////for Make excat Register page
+  // const avatarLocalPath = req.files?.avatar[0]?.path;
+  // //  const coverImageLocalPath = req.files?.coverImage[0]?.path;  // becoz it's not required so again rewrite in different way
+  // let coverImageLocalPath;
+  // if (
+  //   req.files &&
+  //   Array.isArray(req.files.coverImage) &&
+  //   req.files.coverImage.length > 0
+  // ) {
+  //   coverImageLocalPath = req.files.coverImage[0].path;
+  // }
 
-  if (!avatarLocalPath) {
-    throw new ApiError(400, "Avatar file is required");
-  }
+  // if (!avatarLocalPath) {
+  //   throw new ApiError(400, "Avatar file is required");
+  // }
 
-  const avatar = await uploadOnCloudinary(avatarLocalPath);
-  const coverImage = await uploadOnCloudinary(coverImageLocalPath);
+  // const avatar = await uploadOnCloudinary(avatarLocalPath);
+  // const coverImage = await uploadOnCloudinary(coverImageLocalPath);
 
-  if (!avatar) {
-    throw new ApiError(400, "Avatar file is required");
-  }
+  // if (!avatar) {
+  //   throw new ApiError(400, "Avatar file is required");
+  // }
 
   const user = await User.create({
     fullName,
-    avatar: avatar.url,
-    coverImage: coverImage?.url || "",
+    // avatar: avatar.url,
+    // coverImage: coverImage?.url || "",
     email,
     password,
     username: username.toLowerCase(),
@@ -458,12 +459,12 @@ export {
   registerUser,
   loginUser,
   logoutUser,
-  refreshAccessToken,
-  changeCurrentPassword,
-  getCurrentUser,
-  updateAccountDetails,
-  updateUserAvatar,
-  updateUserCoverImage,
-  getUserChannelProfile,
-  getWatchHistory
+  refreshAccessToken
+  // changeCurrentPassword,
+  // getCurrentUser,
+  // updateAccountDetails,
+  // updateUserAvatar,
+  // updateUserCoverImage,
+  // getUserChannelProfile,
+  // getWatchHistory
 };

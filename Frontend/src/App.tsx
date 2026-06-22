@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Setting";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ChangePassword from "./pages/ChangePassword";
 
 
 function App() {
@@ -12,17 +13,24 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/dashboard" element={<ProtectedRoute>
           <Dashboard />
         </ProtectedRoute>} />
+
         <Route path="/profile" element={
           <ProtectedRoute>
             <Profile />
           </ProtectedRoute>} />
-        <Route path="/setting" element={
+
+        <Route path="/settings" element={
           <ProtectedRoute>
             <Settings />
           </ProtectedRoute>} />
+
+          <Route path ="/change-password" element ={<ProtectedRoute>
+            <ChangePassword />
+          </ProtectedRoute>}/>
 
       </Routes>
     </BrowserRouter>

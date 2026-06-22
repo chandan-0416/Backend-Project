@@ -461,10 +461,10 @@ export {
   logoutUser,
   refreshAccessToken,
   changeCurrentPassword,
-  getCurrentUser
-  // updateAccountDetails,
-  // updateUserAvatar,
-  // updateUserCoverImage,
-  // getUserChannelProfile,
-  // getWatchHistory
+  getCurrentUser,
+  updateAccountDetails,
+  updateUserAvatar,
+  updateUserCoverImage,
+  getUserChannelProfile,
+  getWatchHistory
 };

@@ -1,9 +1,6 @@
 import React from "react";
-import {
-  FiUser,
-  FiMail,
-  FiAtSign,
-} from "react-icons/fi";
+import { FiUser, FiMail, FiAtSign } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 interface User {
   fullName?: string;
@@ -12,40 +9,60 @@ interface User {
 }
 
 const Profile: React.FC = () => {
+  const navigate = useNavigate();
+
   const user: User = JSON.parse(
     localStorage.getItem("user") || "{}"
   );
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-indigo-100 flex justify-center items-center p-6">
-      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden">
+    <div className="min-h-screen bg-slate-100 py-10 px-4">
 
-        {/* Cover Section */}
-        <div className="h-40 bg-linear-to-r from-blue-600 to-indigo-600 relative">
+      <div className="max-w-3xl mx-auto">
 
-          {/* Avatar */}
-          <div className="absolute left-1/2 -bottom-12 -translate-x-1/2">
-            <div className="w-24 h-24 rounded-full bg-white shadow-lg flex items-center justify-center">
-              <FiUser size={40} className="text-blue-600" />
-            </div>
-          </div>
-
-        </div>
-
-        {/* Content */}
-        <div className="pt-16 pb-8 px-8">
-
-          <h1 className="text-3xl font-bold text-center">
-            {user.fullName || "User"}
+        {/* Header */}
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-800">
+            My Profile
           </h1>
 
-          <p className="text-center text-gray-500 mt-2">
-            Welcome to your profile
+          <p className="text-gray-500 mt-1">
+            Manage your account information
           </p>
+        </div>
 
-          <div className="mt-8 grid gap-5">
+        {/* Profile Card */}
+        <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
 
-            <div className="flex items-center gap-4 p-4 border rounded-xl">
+          {/* Top Section */}
+          <div className="p-8 border-b">
+
+            <div className="flex flex-col items-center">
+
+              <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
+                <FiUser
+                  size={36}
+                  className="text-blue-600"
+                />
+              </div>
+
+              <h2 className="mt-4 text-2xl font-bold text-gray-800">
+                {user.fullName || "User"}
+              </h2>
+
+              <p className="text-gray-500">
+                @{user.username || "username"}
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* Information Section */}
+          <div className="p-8 space-y-6">
+
+            <div className="flex items-center gap-4 border-b pb-4">
+
               <FiUser
                 size={22}
                 className="text-blue-600"
@@ -56,13 +73,15 @@ const Profile: React.FC = () => {
                   Full Name
                 </p>
 
-                <p className="font-semibold">
+                <p className="font-medium text-gray-800">
                   {user.fullName || "Not Available"}
                 </p>
               </div>
+
             </div>
 
-            <div className="flex items-center gap-4 p-4 border rounded-xl">
+            <div className="flex items-center gap-4 border-b pb-4">
+
               <FiAtSign
                 size={22}
                 className="text-blue-600"
@@ -73,13 +92,15 @@ const Profile: React.FC = () => {
                   Username
                 </p>
 
-                <p className="font-semibold">
+                <p className="font-medium text-gray-800">
                   {user.username || "Not Available"}
                 </p>
               </div>
+
             </div>
 
-            <div className="flex items-center gap-4 p-4 border rounded-xl">
+            <div className="flex items-center gap-4">
+
               <FiMail
                 size={22}
                 className="text-blue-600"
@@ -87,25 +108,42 @@ const Profile: React.FC = () => {
 
               <div>
                 <p className="text-sm text-gray-500">
-                  Email
+                  Email Address
                 </p>
 
-                <p className="font-semibold">
+                <p className="font-medium text-gray-800">
                   {user.email || "Not Available"}
                 </p>
               </div>
+
             </div>
 
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <button className="px-6 py-3 bg-linear-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:scale-105 transition">
+          {/* Buttons */}
+          <div className="p-8 border-t flex gap-4">
+
+            <button
+              onClick={() =>
+                navigate("/settings")
+              }
+              className="flex-1 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
+            >
+              Account Settings
+            </button>
+
+            <button
+              className="flex-1 border border-gray-300 py-3 rounded-xl font-semibold hover:bg-gray-100 transition"
+            >
               Edit Profile
             </button>
+
           </div>
 
         </div>
+
       </div>
+
     </div>
   );
 };

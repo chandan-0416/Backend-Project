@@ -38,8 +38,6 @@ const Home = () => {
                     </button>
                 </div>
 
-
-
             </nav>
 
             {/* Background Blur Effects */}

@@ -7,7 +7,7 @@ const Home = () => {
     const[authType, setAuthType] = useState<"login" | "register">("login");
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 relative overflow-hidden">
+        <main className="min-h-screen bg-linear-to-br from-slate-950 via-blue-950 to-slate-900 relative overflow-hidden">
 
             {/* Navbar */}
             <nav className="fixed top-0 left-0 w-full px-8 py-5 flex justify-between items-center z-40">
@@ -22,7 +22,7 @@ const Home = () => {
                             setAuthType("login");
                             setShowModal(true);
                         }}
-                        className="px-5 py-2 text-white border border-white/30 rounded-lg hover:bg-white/10 transition duration-300"
+                        className="px-5 py-2 text-white border border-white/30 rounded-lg hover:bg-white/10 transition duration-300 cursor-pointer"
                     >
                         Sign In
                     </button>
@@ -32,7 +32,7 @@ const Home = () => {
                             setAuthType("register");
                             setShowModal(true);
                         } }
-                        className="px-5 py-2 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition duration-300 shadow-md"
+                        className="px-5 py-2 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition duration-300 shadow-md cursor-pointer"
                     >
                         Register
                     </button>
@@ -62,14 +62,7 @@ const Home = () => {
                     React, TypeScript, Node.js, Express.js,
                     MongoDB Atlas, JWT Authentication and Cloudinary.
                 </p>
-
-                <button
-                    onClick={() => setShowModal(true)}
-                    className="mt-10 px-8 py-4 bg-blue-600 text-white rounded-xl text-lg font-semibold hover:bg-blue-700 transition"
-                >
-                    Get Started
-                </button>
-
+                
             </section>
 
             {/* Login Modal */}

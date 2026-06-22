@@ -1,21 +1,32 @@
-import Register from "./pages/Register.tsx";
-import Login from "./pages/Login.tsx";
-import Home from "./pages/Home.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Profile from "./pages/Profile.tsx";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Setting";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 function App() {
-  return ( 
+  return (
 
-    <BrowserRouter> 
-    <Routes>
-      <Route path ="/" element= {<Home /> } />
-      <Route path ="/Register" element= {<Register />} />
-      <Route path ="/login" element = {<Login />} />
-      <Route path="/profile" element ={<Profile />}   /> 
-   </Routes>
-   </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>} />
+        <Route path="/profile" element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>} />
+        <Route path="/setting" element={
+          <ProtectedRoute>
+            <Settings />
+          </ProtectedRoute>} />
 
-)
+      </Routes>
+    </BrowserRouter>
+
+  )
 }
 export default App;

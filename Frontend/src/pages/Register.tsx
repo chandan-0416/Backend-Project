@@ -202,7 +202,7 @@ const Register: React.FC<RegisterProps> = ({
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl font-semibold hover:scale-[1.02] transition"
+            className="w-full bg-linear-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl font-semibold hover:scale-[1.02] transition cursor-pointer"
           >
             {loading
               ? "Creating Account..."
@@ -218,7 +218,7 @@ const Register: React.FC<RegisterProps> = ({
             <button
               type="button"
               onClick={switchToLogin}
-              className="ml-2 text-blue-600 font-semibold hover:underline"
+              className="ml-2 text-blue-600 font-semibold hover:underline cursor-pointer"
             >
               Sign In
             </button>
